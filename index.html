@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application and Recruitment Tracking System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- AUTHENTICATION -->
+<div id="authPage" class="auth-page">
+    <div class="auth-brand">
+        <div class="brand-icon">J</div>
+        <h1>JARTS</h1>
+        <p>Job Application and Recruitment Tracking System</p>
+        <div class="auth-info">
+            Connecting talented people with great opportunities.
+        </div>
+    </div>
+
+    <div class="auth-panel">
+        <div id="loginSection">
+            <h2>Welcome Back!</h2>
+            <p class="muted">Sign in to continue to your account.</p>
+
+            <label>Account Type</label>
+            <select id="loginRole">
+                <option value="employee">Employee</option>
+                <option value="employer">Employer</option>
+            </select>
+
+            <label>Email Address</label>
+            <input type="email" id="loginEmail"
+                   placeholder="Enter your email">
+
+            <label>Password</label>
+            <input type="password" id="loginPassword"
+                   placeholder="Enter your password">
+
+            <button class="primary-btn full" onclick="login()">
+                Sign In
+            </button>
+
+            <p class="center">
+                Don't have an account?
+                <a onclick="showRegister()">Create Account</a>
+            </p>
+
+            <div class="demo-box">
+                <b>Demo Accounts</b>
+                <p>Employee: employee@demo.com</p>
+                <p>Employer: employer@demo.com</p>
+                <p>Password: 123456</p>
+            </div>
+        </div>
+
+        <div id="registerSection" class="hidden">
+            <h2>Create an Account</h2>
+            <p class="muted">Join our recruitment platform.</p>
+
+            <label>Register As</label>
+            <select id="regRole">
+                <option value="employee">Employee</option>
+                <option value="employer">Employer</option>
+            </select>
+
+            <label>Full Name / Company Name</label>
+            <input id="regName" placeholder="Enter your name">
+
+            <label>Email Address</label>
+            <input id="regEmail" type="email"
+                   placeholder="Enter your email">
+
+            <label>Password</label>
+            <input id="regPassword" type="password"
+                   placeholder="Create a password">
+
+            <button class="primary-btn full" onclick="register()">
+                Create Account
+            </button>
+
+            <p class="center">
+                Already have an account?
+                <a onclick="showLogin()">Sign In</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- MAIN APPLICATION -->
+<div id="appPage" class="app-page hidden">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <div class="brand-icon small">J</div>
+            <div>
+                <b>JARTS</b>
+                <small>Recruitment System</small>
+            </div>
+        </div>
+
+        <div class="user-info">
+            <div class="avatar" id="userAvatar">U</div>
+            <div>
+                <b id="userName">User</b>
+                <small id="userRole">Employee</small>
+            </div>
+        </div>
+
+        <nav id="sidebarMenu"></nav>
+
+        <div class="sidebar-bottom">
+            <button onclick="showPage('settings')">⚙ Settings</button>
+            <button onclick="logout()">↪ Logout</button>
+        </div>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h2 id="pageTitle">Dashboard</h2>
+                <p id="pageSubtitle">Welcome to JARTS</p>
+            </div>
+
+            <button class="notification-btn"
+                    onclick="showPage('notifications')">
+                🔔 Notifications
+                <span id="notificationCount" class="notification-count">
+                    0
+                </span>
+            </button>
+        </header>
+
+        <div id="pageContent"></div>
+
+    </main>
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal hidden">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeModal()">×</button>
+        <div id="modalBody"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
